@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scotch Whisky: Consumer Progression & Premiumization Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --amber: #c98b2e;
+      --amber-soft: #e2bf78;
+      --oak: #7a4e22;
+      --smoke: #9da0a3;
+      --cream: #f4ede3;
+      --ink: #0e0b09;
+      --ink-2: #171210;
+      --panel: rgba(24, 18, 14, 0.84);
+      --panel-2: rgba(34, 24, 18, 0.92);
+      --border: rgba(255,255,255,0.10);
+      --max: 1320px;
+      --shadow: 0 24px 60px rgba(0,0,0,0.32);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      color: var(--cream);
+      font-family: "Manrope", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(201,139,46,.18), transparent 28%),
+        radial-gradient(circle at 100% 0%, rgba(122,78,34,.16), transparent 24%),
+        linear-gradient(180deg, #080605 0%, #0d0a08 22%, #15100d 100%);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 4.6rem 1.4rem 3rem;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(145deg, rgba(122,78,34,.28) 0%, rgba(11,8,6,.96) 56%, rgba(201,139,46,.10) 100%);
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .12;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 16px),
+        repeating-linear-gradient(180deg, rgba(255,255,255,.02) 0 1px, transparent 1px 20px);
+      mix-blend-mode: soft-light;
+    }
+    .hero, main, .metrics { max-width: var(--max); margin: 0 auto; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, .95fr);
+      gap: 1.8rem;
+      align-items: end;
+      position: relative;
+      z-index: 2;
+    }
+    .eyebrow, .label, .stat-label, .nav a, th {
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    .eyebrow { color: var(--amber-soft); margin-bottom: .9rem; }
+    h1, h2, h3 { font-family: "Fraunces", serif; font-weight: 600; }
+    h1 {
+      font-size: clamp(3rem, 6.2vw, 5.6rem);
+      line-height: .93;
+      margin-bottom: 1rem;
+      max-width: 900px;
+    }
+    .hero-copy {
+      max-width: 720px;
+      color: #d3c6b8;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 1.1rem;
+    }
+    .hero-copy strong { color: var(--cream); }
+    .tag-row, .cta-row, .metrics { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: #cab9a8;
+      font-size: 11px;
+    }
+    .hero-panel, .metric, .card, .insight, .chart-card {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .hero-panel {
+      border-radius: 24px;
+      padding: 1.3rem;
+      backdrop-filter: blur(18px);
+    }
+    .label { color: var(--amber-soft); }
+    .hero-panel h2, .section-title, .card-title, .insight h3 { line-height: .98; }
+    .hero-panel h2 { font-size: 2rem; margin: .45rem 0 .8rem; }
+    .hero-panel p, .card p, .insight p, .section-copy, td { color: #cfbda9; line-height: 1.82; }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 1rem;
+    }
+    .mini-card, .decision-box, .recommend-card {
+      border-radius: 16px;
+      padding: .95rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .mini-card strong, .decision-box strong {
+      display: block;
+      margin-top: .3rem;
+      font-family: "Fraunces", serif;
+      font-size: 1.35rem;
+      line-height: 1.05;
+      color: var(--cream);
+    }
+    .metrics { margin-top: 1.2rem; position: relative; z-index: 2; }
+    .metric {
+      flex: 1 1 190px;
+      min-width: 190px;
+      border-radius: 18px;
+      padding: 1rem;
+    }
+    .stat-label { color: var(--smoke); margin-bottom: .35rem; }
+    .stat-value {
+      font-family: "Fraunces", serif;
+      font-size: 1.85rem;
+      line-height: 1.05;
+      margin-bottom: .2rem;
+    }
+    .metric p { color: #c8b6a3; font-size: 12px; line-height: 1.68; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: .95rem 1rem 1rem;
+      background: rgba(11, 8, 6, .92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+    .nav a {
+      white-space: nowrap;
+      color: #b8aca0;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .2s ease;
+    }
+    .nav a:hover, .nav a.active { background: var(--amber); color: #1b130d; border-color: var(--amber); }
+    main { padding: 2.3rem 1.4rem 3rem; }
+    section { margin-bottom: 4rem; scroll-margin-top: 5rem; }
+    .section-head {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: end;
+      flex-wrap: wrap;
+      margin-bottom: 1.3rem;
+      padding-bottom: .95rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title { font-size: 2.45rem; }
+    .section-copy { max-width: 860px; font-size: 14px; }
+    .split { display: grid; grid-template-columns: 1.06fr .94fr; gap: 18px; }
+    .card, .chart-card { border-radius: 22px; padding: 1.3rem; }
+    .card-title { font-size: 1.6rem; margin: .45rem 0 .7rem; }
+    .decision-grid, .recommend-grid, .insight-grid, .evidence-grid { display: grid; gap: 16px; }
+    .decision-grid, .recommend-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .insight-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .evidence-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .chart-card img, .evidence-grid img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      object-fit: contain;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.05);
+      background: #100c09;
+      padding: .35rem;
+    }
+    .chart-caption, figcaption { margin-top: .85rem; font-size: 13px; color: #bcae9f; line-height: 1.72; }
+    .insight {
+      min-height: 190px;
+      padding: 1.15rem;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(201,139,46,.12) 0%, rgba(24,18,14,.94) 100%);
+    }
+    .insight:nth-child(3n+2) { background: linear-gradient(180deg, rgba(122,78,34,.16) 0%, rgba(24,18,14,.94) 100%); }
+    .insight:nth-child(3n+3) { background: linear-gradient(180deg, rgba(226,191,120,.10) 0%, rgba(24,18,14,.94) 100%); }
+    .insight-index { color: var(--amber-soft); margin-bottom: .55rem; }
+    .insight h3 { font-size: 1.42rem; margin-bottom: .75rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      text-align: left;
+      padding: 11px 10px;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      vertical-align: top;
+    }
+    th { color: var(--smoke); }
+    .table-wrap { overflow-x: auto; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      transition: .2s ease;
+    }
+    .btn.primary { background: var(--amber); border-color: var(--amber); color: #1a120d; }
+    .btn.ghost { background: transparent; }
+    .btn:hover { transform: translateY(-1px); }
+    @media (max-width: 1020px) {
+      .hero, .split { grid-template-columns: 1fr; }
+      .mini-grid, .decision-grid, .recommend-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      header { padding: 3rem 1rem 2rem; }
+      main { padding: 1.6rem 1rem 2.6rem; }
+      h1 { font-size: 3rem; }
+      .section-title { font-size: 2rem; }
+      .hero-copy, .section-copy { font-size: 14px; line-height: 1.76; }
+      .nav { padding: .8rem .8rem .9rem; gap: 8px; }
+      .nav a { padding: 10px 13px; }
+      .metric { min-width: 100%; }
+      .card, .chart-card { padding: 1rem; border-radius: 18px; }
+      section { margin-bottom: 3rem; }
+      .chart-card img, .evidence-grid img { aspect-ratio: auto; }
+      .cta-row .btn { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="grain"></div>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">III.IV flagship case study / Scotch whisky / progression and premiumization / Gauteng retail lens</div>
+        <h1>Scotch Whisky<br>Consumer Progression Intelligence</h1>
+        <p class="hero-copy">This is not a sales dashboard. It asks a more useful retail question: <strong>which bottles help a shopper move up, where does that movement tighten on price, and what on-shelf signals create trial without building loyalty?</strong></p>
+        <div class="tag-row">
+          <span class="tag">Scotch whisky</span>
+          <span class="tag">Premiumization</span>
+          <span class="tag">Retail influence</span>
+          <span class="tag">Consumer progression</span>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <div class="label">Decision frame</div>
+        <h2>Where the category recruits, and where it finally earns commitment</h2>
+        <p>The useful distinction in this build is that the bottle recruiting a shopper into the next rung of the ladder is not the same bottle that eventually becomes a destination. That difference matters for shelf logic, gift strategy, and the pricing story around premium Scotch.</p>
+        <div class="mini-grid">
+          <div class="mini-card"><div class="label">Gateway</div><strong>Johnnie Walker Black Label</strong><p>Looks like the cleanest bridge from accessible familiarity into more deliberate buying.</p></div>
+          <div class="mini-card"><div class="label">Destination</div><strong>Lagavulin 16</strong><p>Smaller in frequency, stronger in commitment once a buyer gets there.</p></div>
+          <div class="mini-card"><div class="label">Friction step</div><strong>R320-R420</strong><p>The first meaningful stretch where curiosity rises faster than comfort.</p></div>
+        </div>
+      </aside>
+    </div>
+    <div class="metrics">
+      <article class="metric"><div class="stat-label">Dataset rows</div><div class="stat-value">3,200</div><p>Synthetic purchase and exposure observations across eight fixed Scotch expressions.</p></article>
+      <article class="metric"><div class="stat-label">Repeat signal</div><div class="stat-value">33.0%</div><p>Present, useful, and intentionally sparse enough to avoid looking like a perfect loyalty system.</p></article>
+      <article class="metric"><div class="stat-label">Missing notes</div><div class="stat-value">32.8%</div><p>The dataset stays rough around the edges so the retail story feels observed, not polished flat.</p></article>
+      <article class="metric"><div class="stat-label">Lead read</div><div class="stat-value">Step-up bottles matter</div><p>Progression begins with confidence and recognition long before it reaches distinctive preference.</p></article>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#question" class="active">Question</a>
+    <a href="#ladder">Ladder</a>
+    <a href="#friction">Friction</a>
+    <a href="#gifting">Gifting</a>
+    <a href="#display">Display</a>
+    <a href="#evidence">Evidence</a>
+  </nav>
+
+  <main>
+    <section id="question">
+      <div class="section-head">
+        <div><div class="label">Commercial framing</div><h2 class="section-title">Not a category dashboard. A progression question.</h2></div>
+        <p class="section-copy">Retail teams can already see which Scotch bottles move. What is harder to see is whether the category is creating believable movement from safe and familiar bottles into more specific, more premium, and more preference-led buying. That is the lens used here.</p>
+      </div>
+      <div class="split">
+        <article class="card">
+          <div class="label">Business question</div>
+          <h3 class="card-title">What signals show real progression, and where does the shelf interrupt it?</h3>
+          <p>The case tracks product role, shelf location, gifting cues, display type, and imperfect repeat behaviour. The goal is to separate one-off premium moments from actual movement up the ladder.</p>
+          <div class="cta-row" style="margin-top:1rem;">
+            <a class="btn primary" href="https://github.com/km-webdvlpr/scotch-whisky-consumer-progression-intelligence" target="_blank" rel="noreferrer">Open GitHub project</a>
+            <a class="btn ghost" href="https://km-webdvlpr.github.io/III.IV/projects/scotch-whisky-consumer-progression-intelligence/" target="_blank" rel="noreferrer">Open III.IV case file</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">Commercial read</div>
+          <div class="decision-grid">
+            <div class="decision-box"><div class="label">Recruitment bottle</div><strong>Black Label</strong><p>Looks like the most credible step-up without asking the shopper to abandon familiarity.</p></div>
+            <div class="decision-box"><div class="label">Preference bottle</div><strong>Lagavulin 16</strong><p>Much smaller pool, but stronger signs of commitment once the buyer gets there.</p></div>
+            <div class="decision-box"><div class="label">Packaging caution</div><strong>Gift boxes</strong><p>They expand occasion buying faster than they build routine repeat.</p></div>
+            <div class="decision-box"><div class="label">Shelf lesson</div><strong>Standard shelf</strong><p>Discovery needs theatre, but loyalty still shows up where bottles remain easy to find.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="ladder">
+      <div class="section-head">
+        <div><div class="label">Product ladder</div><h2 class="section-title">The category still lives in entry and core, but the real story sits in the bridge upward.</h2></div>
+        <p class="section-copy">The volume base remains familiar and accessible. Premium and distinctive expressions matter because they change value and preference, not because they dominate count. That makes the bridge products more important than a simple cheapest-versus-most-expensive ranking.</p>
+      </div>
+      <div class="split">
+        <article class="chart-card">
+          <img src="../assets/tier-distribution.png" alt="Tier distribution">
+          <p class="chart-caption">Entry and core still carry the category day to day, while premium and distinctive sharply lift price without taking over the whole shelf story.</p>
+        </article>
+        <article class="chart-card">
+          <img src="../assets/progression-map.png" alt="Progression map">
+          <p class="chart-caption">Gateway products sit where price is still manageable and self-purchase remains comfortable. Destination products are narrower, but they hold stronger repeat once preference is formed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="friction">
+      <div class="section-head">
+        <div><div class="label">Price progression</div><h2 class="section-title">The first real hesitation arrives before the category even reaches its top shelf.</h2></div>
+        <p class="section-copy">The useful tension in this model is that exploratory interest keeps rising into the first visible step-up zone, but repeat does not rise with it. That is usually where interest stops being the same thing as comfort.</p>
+      </div>
+      <article class="chart-card">
+        <img src="../assets/price-friction.png" alt="Price progression friction">
+        <p class="chart-caption">The `R320-R420` jump is the first place where premiumization starts to look fragile. Shoppers are willing to browse upward before they are willing to live there repeatedly.</p>
+      </article>
+    </section>
+
+    <section id="gifting">
+      <div class="section-head">
+        <div><div class="label">Packaging and occasion</div><h2 class="section-title">Gift packaging helps bottles travel, but not always return.</h2></div>
+        <p class="section-copy">Gift boxes matter because they help create premium trial without necessarily creating preference-led self-purchase. That is useful commercially, but it should not be mistaken for loyalty.</p>
+      </div>
+      <div class="split">
+        <article class="chart-card">
+          <img src="../assets/packaging-gifting.png" alt="Packaging and gifting behaviour">
+          <p class="chart-caption">Gift-boxed bottles over-index in gift buying. The uplift is real, but the follow-up repeat story is softer.</p>
+        </article>
+        <article class="card">
+          <div class="label">What this changes</div>
+          <h3 class="card-title">Packaging should be treated as recruitment, not proof.</h3>
+          <p>A bottle that works in a gifting moment still needs standard shelf support, flavour clarity, and a believable price step if it is going to move into someone’s own routine later.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="display">
+      <div class="section-head">
+        <div><div class="label">Retail influence</div><h2 class="section-title">Discovery and loyalty do not happen in quite the same place.</h2></div>
+        <p class="section-copy">Feature displays and gift sections are useful for attention. Standard shelf conditions are where habitual, lower-theatre repeat becomes more visible. That distinction helps explain why some bottles create buzz without building a base.</p>
+      </div>
+      <div class="split">
+        <article class="chart-card">
+          <img src="../assets/display-influence.png" alt="Display influence">
+          <p class="chart-caption">Feature-led discovery is visible, but repeat is steadier where the shelf feels familiar and easy to return to.</p>
+        </article>
+        <article class="chart-card">
+          <img src="../assets/stalling-points.png" alt="Stalling points">
+          <p class="chart-caption">The dataset preserves plenty of stall: shoppers who stay accessible, try upward without returning, or need promo support before stepping up.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="evidence">
+      <div class="section-head">
+        <div><div class="label">Evidence and links</div><h2 class="section-title">The commercial read, the supporting visuals, and the files underneath it.</h2></div>
+        <p class="section-copy">The point of the project is to make progression legible in a retail setting. These are the six key reads that hold the argument together, plus the underlying files and links back to the wider III.IV portfolio.</p>
+      </div>
+      <div class="insight-grid">
+        <article class="insight"><div class="insight-index">01</div><h3>Black Label is the bridge</h3><p>It has the best mix of recognisable comfort, self-purchase confidence, and step-up intent.</p></article>
+        <article class="insight"><div class="insight-index">02</div><h3>Lagavulin is the commitment play</h3><p>It wins less often, but it wins with stronger signs of preference-led repeat.</p></article>
+        <article class="insight"><div class="insight-index">03</div><h3>The first stretch is the real tension</h3><p>The cleanest friction appears in the R320-R420 step, well before the most distinctive bottles.</p></article>
+        <article class="insight"><div class="insight-index">04</div><h3>Gift packaging recruits</h3><p>It gets premium bottles into baskets, but does not automatically turn them into habits.</p></article>
+        <article class="insight"><div class="insight-index">05</div><h3>Discovery is not loyalty</h3><p>Feature displays drive attention, but standard shelf presence does more of the repeat work.</p></article>
+        <article class="insight"><div class="insight-index">06</div><h3>Some trial is weak by design</h3><p>Certain premium bottles invite curiosity faster than they earn a place in someone’s regular rotation.</p></article>
+      </div>
+      <div style="height:18px;"></div>
+      <div class="split">
+        <article class="card">
+          <div class="label">Dataset summary</div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>File</th><th>Rows</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td>scotch_progression_observations.csv</td><td>3,200</td><td>Purchase and shelf observations across products, retail context, behaviour, and messy text cues</td></tr>
+                <tr><td>scotch_progression_intelligence.ipynb</td><td>8 sections</td><td>Notebook walkthrough of progression, friction, gifting, display influence, and stall</td></tr>
+                <tr><td>insights.md</td><td>6 insights</td><td>Decision-oriented findings for commercial and category discussion</td></tr>
+                <tr><td>validation_summary.json</td><td>4 key reads</td><td>Quick snapshot of gateway, destination, friction point, and core signal</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">Project links</div>
+          <h3 class="card-title">From live walkthrough to portfolio case file.</h3>
+          <p>The standalone page carries the visual story. The III.IV case file holds the portfolio framing, and the GitHub repository contains the dataset, notebook, charts, and build files.</p>
+          <div class="cta-row" style="margin-top:1rem;">
+            <a class="btn primary" href="https://km-webdvlpr.github.io/III.IV/projects/scotch-whisky-consumer-progression-intelligence/" target="_blank" rel="noreferrer">Open case file</a>
+            <a class="btn ghost" href="https://github.com/km-webdvlpr/scotch-whisky-consumer-progression-intelligence" target="_blank" rel="noreferrer">Open repository</a>
+            <a class="btn ghost" href="https://km-webdvlpr.github.io/III.IV/projects/" target="_blank" rel="noreferrer">Back to III.IV projects</a>
+          </div>
+        </article>
+      </div>
+      <div style="height:18px;"></div>
+      <div class="evidence-grid">
+        <figure class="chart-card"><img src="../assets/tier-distribution.png" alt="Tier distribution"><figcaption>Tier distribution</figcaption></figure>
+        <figure class="chart-card"><img src="../assets/progression-map.png" alt="Progression map"><figcaption>Progression map</figcaption></figure>
+        <figure class="chart-card"><img src="../assets/price-friction.png" alt="Price friction"><figcaption>Price friction</figcaption></figure>
+        <figure class="chart-card"><img src="../assets/display-influence.png" alt="Display influence"><figcaption>Display influence</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('.nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav a').forEach((item) => item.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
