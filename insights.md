@@ -1,53 +1,44 @@
 INSIGHT
 Gateway movement starts with familiar labels, not dramatic leaps.
 FINDING
-Johnnie Walker Black Label shows the strongest mix of volume, entry-to-familiar buyer presence, and enough self-purchase behaviour to act like a progression bridge rather than a dead-end bargain buy.
+Johnnie Walker Black Label carries the highest gateway score once early-stage buyer mix, self-purchase behaviour, and scale are read together.
 SO WHAT
-Progression is easier when the step-up still feels recognisable. Shoppers do not suddenly become premium buyers; they usually step into something that feels slightly more deliberate, not completely unfamiliar.
+In this model, progression starts where shoppers still feel they recognise the bottle. The move upward is more of a guided step than a dramatic leap.
 RECOMMENDATION
-Use gateway bottles to frame the category ladder on shelf. Keep them visible near stronger premium cues instead of isolating them in the value block.
-
-INSIGHT
-Some premium bottles earn curiosity faster than they earn loyalty.
-FINDING
-Glenlivet 12 and gift-forward Chivas Regal 12 patterns lean more heavily toward trial than repeat, especially when the purchase sits in a gift section or a promo-led context.
-SO WHAT
-A bottle can look healthy in a discovery moment without becoming part of someone's personal rotation. That matters if the goal is progression, not just one-off uplift.
-RECOMMENDATION
-Treat these as recruitment products. Support them with education, pairing, or trade-up prompts rather than assuming trial will naturally convert into loyalty.
-
-INSIGHT
-Price progression gets noticeably tighter around R320-R420.
-FINDING
-The modeled repeat signal softens most sharply once shoppers stretch into this price step, even though exploratory interest keeps rising.
-SO WHAT
-People are willing to browse upward before they are willing to live there. Interest is not the same thing as comfort.
-RECOMMENDATION
-Make the step feel smaller with shelf comparison, tasting cues, or a clear why-this-costs-more story.
-
-INSIGHT
-Gift boxes help trial more than they help habit.
-FINDING
-Gift-boxed bottles over-index in gift buying and feature-led display moments, but they do not turn into the strongest repeat performers in the dataset.
-SO WHAT
-Packaging can open the door without creating a relationship. That is useful, but it should not be mistaken for loyalty.
-RECOMMENDATION
-Use gift packaging as a seasonal acquisition tool, then hand off repeat-building to the standard shelf, price architecture, and flavour clarity.
-
-INSIGHT
-Standard shelf placement still matters more for loyalty than flashy displays do.
-FINDING
-Promo stacks and gift sections help discovery, but repeat comes through more steadily on standard display conditions where shoppers look like they already know what they want.
-SO WHAT
-Discovery and loyalty are not built in the same place. A display that gets attention is not automatically the one that builds a base.
-RECOMMENDATION
-Separate recruitment space from habit space in retail planning. Feature displays should seed trial; core shelf placement should protect follow-up purchase.
+Use gateway bottles to frame the shelf ladder. Keep them close to more premium cues rather than isolating them in the value block.
 
 INSIGHT
 Destination bottles are defined by commitment, not just price.
 FINDING
-Lagavulin 16 has the strongest destination pattern: lower broad frequency, stronger repeat, and a heavier concentration of exploratory and preference-led buyers.
+Lagavulin 16 ranks highest on the destination score, which leans more heavily on repeat, later-stage buyer mix, and price intensity.
 SO WHAT
-The top end is not where most people start, but it is where a smaller set of buyers become much clearer about what they like.
+The top end is not where most shoppers start, but it is where a smaller group becomes much clearer about what they like.
 RECOMMENDATION
-Merchandise destination products with flavour language and confidence cues, not only prestige cues. People need permission to commit, not just admire.
+Merchandise destination bottles with flavour language and confidence cues, not only prestige cues.
+
+INSIGHT
+The first price stretch still does most of the damage.
+FINDING
+The first clear tension in the model sits in the R320-R420 band.
+SO WHAT
+Shoppers often browse upward before they are willing to stay there. Interest is not the same thing as comfort.
+RECOMMENDATION
+Make the first premium stretch easier to understand with comparison, flavour cues, or a clearer why-this-costs-more story.
+
+INSIGHT
+Gift packaging helps trial more than it helps habit.
+FINDING
+Gift-boxed bottles widen gift-led and occasion-led purchase, but they do not become the strongest repeat performers in the model.
+SO WHAT
+Packaging can open the door without creating a relationship. That is useful, but it should not be mistaken for loyalty.
+RECOMMENDATION
+Use gift packaging as a seasonal recruitment tool, then hand off repeat-building to the standard shelf and clearer flavour cues.
+
+INSIGHT
+Standard shelf space is still doing the quieter loyalty work.
+FINDING
+Feature displays and promo stacks help discovery, but steadier repeat sits more often in standard shelf conditions.
+SO WHAT
+Discovery and habit are not built in the same place.
+RECOMMENDATION
+Separate recruitment space from habit space in retail planning. Let displays seed trial, but protect the core shelf for follow-up purchase.

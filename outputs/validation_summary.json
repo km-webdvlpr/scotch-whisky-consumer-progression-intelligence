@@ -3,7 +3,9 @@
   "gateway_product": "Johnnie Walker Black Label",
   "destination_product": "Lagavulin 16",
   "biggest_friction_step": "R320-R420",
-  "key_signal": "Gateway bottles are not just cheaper; they are the ones that still look safe enough for self-purchase while nudging shoppers into a clearer style cue or price step.",
+  "gateway_rule": "Gateway score combines volume, early-stage buyer share, self-purchase share, price fit, and moderate repeat behaviour.",
+  "destination_rule": "Destination score combines repeat rate, later-stage buyer share, and price intensity.",
+  "friction_rule": "The friction step is the first price band where exploratory interest clearly runs ahead of repeat, with low-volume bands excluded.",
   "insights_present": true,
   "notebook_present": true
 }
